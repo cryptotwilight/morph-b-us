@@ -8,4 +8,4 @@ Deployments
 
 |Contract | Address | 
 |---------|---------|
-|MBURegister.sol|[https://explorer-testnet.morphl2.io/address/0x9256f3D9704F72Dfe9F855548F916dd675A32ee8?tab=contract](0x9256f3D9704F72Dfe9F855548F916dd675A32ee8)|
+|MBURegister.sol|[0x9256f3D9704F72Dfe9F855548F916dd675A32ee8](https://explorer-testnet.morphl2.io/address/0x9256f3D9704F72Dfe9F855548F916dd675A32ee8?tab=contract)|

@@ -1,0 +1,191 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_contentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "_feedOwner",
+						"type": "address"
+					}
+				],
+				"name": "addToFeed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "_added",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_feedOwner",
+						"type": "address"
+					}
+				],
+				"name": "getFeed",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_contentIds",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shareId",
+						"type": "uint256"
+					}
+				],
+				"name": "getShare",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "contentId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "userIds",
+								"type": "uint256[]"
+							},
+							{
+								"internalType": "uint256",
+								"name": "date",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Share",
+						"name": "_share",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_contentId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256[]",
+						"name": "_ids",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address",
+						"name": "_sharer",
+						"type": "address"
+					}
+				],
+				"name": "share",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_shareId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_contentIds",
+						"type": "uint256[]"
+					},
+					{
+						"internalType": "address",
+						"name": "_feedOwner",
+						"type": "address"
+					}
+				],
+				"name": "trimFeed",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_trimId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/IMBUFeedManager.sol": "IMBUFeedManager"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IMBUFeedManager.sol": {
+			"keccak256": "0x5e4a240530a9224d6c0c68236a74689323bd94ab3d924f575ef134b6dea02d6b",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://8963856a5d6ac932ea15b1ffeb174b2a44e72391dd24a0bab69a427cb5437f69",
+				"dweb:/ipfs/QmaFSsqEEPiQ8MZC8R7vYWbjMN46uzXRJzF5mvZ6LWnBfn"
+			]
+		},
+		"contracts/interfaces/IMBUStructs.sol": {
+			"keccak256": "0x32ec51d99bf7c78ce80b67c8d0239003e3baca39bf65335bd66b39ac6c3ffa3a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://645f7d3ac2fbede624dffc6af746755aed296dc6e6173523addece1abbf919eb",
+				"dweb:/ipfs/QmWy7YvSizuM82dSWqKoBR1YNpGaYyWfsMmfgNxyKmRZEc"
+			]
+		}
+	},
+	"version": 1
+}

@@ -1,0 +1,584 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"follow(string)": "390deb17",
+			"getContent(uint256)": "0b7ad54c",
+			"getFeed()": "dbadb1d1",
+			"getFollow(uint256)": "80127f7e",
+			"getFollows()": "a120734b",
+			"getMessage(uint256)": "86f79edb",
+			"getMessages()": "5ff6cbf3",
+			"getReward()": "3d18b912",
+			"getShare(uint256)": "cfb5a5f8",
+			"isMorphNameAvailable(string)": "de0c9b6a",
+			"isMuted(string)": "90045069",
+			"mute(string)": "2a788dae",
+			"post((uint256,string,address,string,uint256))": "8f4a3807",
+			"sendMessage((uint256,string,string,string,uint256))": "ca8d458f",
+			"setMorphName(string)": "bb2877da",
+			"share(uint256,uint256[])": "10349ed4",
+			"trimFeed(uint256[])": "73fba1fa",
+			"trimMessages(uint256[])": "aa5724c9",
+			"unfollow(string)": "53e224d2",
+			"unmute(string)": "82b566fa"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "follow",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_followId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_contentId",
+					"type": "uint256"
+				}
+			],
+			"name": "getContent",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "author",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "authorName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Content",
+					"name": "_content",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getFeed",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_contentIds",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_followId",
+					"type": "uint256"
+				}
+			],
+			"name": "getFollow",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "targetName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Follow",
+					"name": "_follow",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getFollows",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_followIds",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_messageId",
+					"type": "uint256"
+				}
+			],
+			"name": "getMessage",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "fromName",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "toName",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Message",
+					"name": "_message",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getMessages",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "messageIds",
+					"type": "uint256[]"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "getReward",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_rewardAmount",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_shareId",
+					"type": "uint256"
+				}
+			],
+			"name": "getShare",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "contentId",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256[]",
+							"name": "userIds",
+							"type": "uint256[]"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Share",
+					"name": "_share",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "isMorphNameAvailable",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "_isAvailable",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "isMuted",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "_isMuted",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "mute",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_muteId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "author",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "authorName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Content",
+					"name": "_content",
+					"type": "tuple"
+				}
+			],
+			"name": "post",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_contentId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "fromName",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "toName",
+							"type": "string"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Message",
+					"name": "_message",
+					"type": "tuple"
+				}
+			],
+			"name": "sendMessage",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_messageId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "setMorphName",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_id",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_contentId",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256[]",
+					"name": "_ids",
+					"type": "uint256[]"
+				}
+			],
+			"name": "share",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_shareId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_contentIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "trimFeed",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_trimId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "_messageIds",
+					"type": "uint256[]"
+				}
+			],
+			"name": "trimMessages",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "_trimmed",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "unfollow",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "_unfollowed",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "string",
+					"name": "_name",
+					"type": "string"
+				}
+			],
+			"name": "unmute",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "_unmuted",
+					"type": "bool"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

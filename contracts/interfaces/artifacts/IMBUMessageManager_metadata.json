@@ -1,0 +1,184 @@
+{
+	"compiler": {
+		"version": "0.8.25+commit.b61c2a91"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_messageId",
+						"type": "uint256"
+					}
+				],
+				"name": "getMessage",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "fromName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "toName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ipfsHash",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "date",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Message",
+						"name": "_message",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_messageRecipient",
+						"type": "address"
+					}
+				],
+				"name": "getMessages",
+				"outputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "messageIds",
+						"type": "uint256[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "fromName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "toName",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "ipfsHash",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "date",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Message",
+						"name": "_message",
+						"type": "tuple"
+					}
+				],
+				"name": "sendMessage",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_messageId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256[]",
+						"name": "_messageIds",
+						"type": "uint256[]"
+					}
+				],
+				"name": "trimMessages",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "_trimmed",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/interfaces/IMBUMessageManager.sol": "IMBUMessageManager"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/interfaces/IMBUMessageManager.sol": {
+			"keccak256": "0x497435d006db337af0fb30e3ac4b0b0f9e49ceb30791569e4e48ba14f680e62a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://610a86f4e1b10115576bd64554295596cb68211a2152964afcea31001b63bd37",
+				"dweb:/ipfs/QmR9PhvyiqFSj7p9DaSwdQJ16AW5eKP7MmQj6GD8JdqZkp"
+			]
+		},
+		"contracts/interfaces/IMBUStructs.sol": {
+			"keccak256": "0x32ec51d99bf7c78ce80b67c8d0239003e3baca39bf65335bd66b39ac6c3ffa3a",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://645f7d3ac2fbede624dffc6af746755aed296dc6e6173523addece1abbf919eb",
+				"dweb:/ipfs/QmWy7YvSizuM82dSWqKoBR1YNpGaYyWfsMmfgNxyKmRZEc"
+			]
+		}
+	},
+	"version": 1
+}

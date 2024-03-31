@@ -1,0 +1,150 @@
+{
+	"deploy": {
+		"VM:-": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"main:1": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"ropsten:3": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"rinkeby:4": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"kovan:42": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"goerli:5": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		},
+		"Custom": {
+			"linkReferences": {},
+			"autoDeployLib": true
+		}
+	},
+	"data": {
+		"bytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"functionDebugData": {},
+			"generatedSources": [],
+			"immutableReferences": {},
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"gasEstimates": null,
+		"methodIdentifiers": {
+			"getContent(uint256)": "0b7ad54c",
+			"post((uint256,string,address,string,uint256))": "8f4a3807"
+		}
+	},
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "_contentId",
+					"type": "uint256"
+				}
+			],
+			"name": "getContent",
+			"outputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "author",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "authorName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Content",
+					"name": "_content",
+					"type": "tuple"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"components": [
+						{
+							"internalType": "uint256",
+							"name": "id",
+							"type": "uint256"
+						},
+						{
+							"internalType": "string",
+							"name": "ipfsHash",
+							"type": "string"
+						},
+						{
+							"internalType": "address",
+							"name": "author",
+							"type": "address"
+						},
+						{
+							"internalType": "string",
+							"name": "authorName",
+							"type": "string"
+						},
+						{
+							"internalType": "uint256",
+							"name": "date",
+							"type": "uint256"
+						}
+					],
+					"internalType": "struct Content",
+					"name": "_content",
+					"type": "tuple"
+				}
+			],
+			"name": "post",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "_contentId",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
+}

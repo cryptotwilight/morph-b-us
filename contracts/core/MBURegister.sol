@@ -24,17 +24,21 @@ contract MBURegister is IMBURegister, IMBUVersion {
 
     string [] names; 
     
-    mapping(address=>bool) hasAddress; 
+    mapping(string=>bool) knownName;
+    mapping(address=>bool) knownAddress; 
+    mapping(string=>bool) hasAddress; 
+    mapping(address=>bool) hasName; 
     mapping(string=>address) addressByName; 
     mapping(address=>string) nameByAddress; 
-    mapping(string=>bool) hasName; 
+    
 
     address admin; 
      
 
     constructor(address _admin) {
         admin = _admin; 
-        self = address(this);     
+        self = address(this);  
+        addAddressInternal(name, self);
     }
 
     function getName() pure external returns (string memory _name){
@@ -45,17 +49,17 @@ contract MBURegister is IMBURegister, IMBUVersion {
         return version; 
     }
     function getAddress(string memory _name) view external returns (address _address) {
-        require(hasName[_name], "name not found");
+        require(hasAddress[_name], "address not found");
         return addressByName[_name];
     }
 
     function getName(address _address) view external returns (string memory _name){
-        require(hasAddress[_address], "unknown address");
+        require(hasName[_address], "unknown address");
         return nameByAddress[_address]; 
     }
 
     function isRegistered(address _address) view external returns (bool _isRegistered) {
-        return hasAddress[_address];
+        return hasName[_address];
     }
 
     function getAddresses() view external adminOnly returns (Config [] memory _config) {
@@ -83,14 +87,13 @@ contract MBURegister is IMBURegister, IMBUVersion {
     //============================ INTERNAL ===========================
 
     function addAddressInternal(string memory _name, address _address) internal returns (bool _added) {
-        if(!hasName[_name]){   
-            hasName[_name] = true;
+        if(!knownName[_name]){
             names.push(_name);
+            knownName[_name] = true; 
         }
-
-        hasAddress[_address] = true; 
-        addressByName[_name] = _address;
-        nameByAddress[_address] = _name; 
+        nameByAddress[_address] = _name;  
+        addressByName[_name] = _address; 
+        knownAddress[_address] = true;  
         return true; 
     }
 }

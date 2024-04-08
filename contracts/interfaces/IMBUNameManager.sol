@@ -8,4 +8,9 @@ interface IMBUNameManager {
 
     function setMorphName(string memory _name, address _owner) external returns (uint256 _id);
 
+    function getMorphAddress(string memory _name) view external returns (address _owner);
+
+    function getMorphName(address _address) view external returns (string memory _name);
+
+    function hasMorphName(address _address) view external returns (bool _hasMorphName);
 }

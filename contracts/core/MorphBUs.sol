@@ -14,13 +14,20 @@ import "../interfaces/IMBURewardsManager.sol";
 
 contract MorphBUs is IMorphBUs { 
 
-    uint256 constant version = 1; 
+    uint256 constant version = 2; 
     string constant name = "RESERVED_MORPH_B_US_CORE";
 
-    string constant NAME_MANAGER = "RESERVED_NAME_MANAGER";
+    string constant MBU_ADMIN = "RESERVED_MBU_ADMIN";
+
+    modifier adminOnly() { 
+        require(register.getAddress(MBU_ADMIN) == msg.sender, "MBU admin only ");
+        _; 
+    }
+    string constant NEW_REGISTER    = "RESERVED_NEW_REGISTER";
+    string constant NAME_MANAGER    = "RESERVED_NAME_MANAGER";
     string constant CONTENT_MANAGER = "RESERVED_CONTENT_MANAGER";
     string constant MESSAGE_MANAGER = "RESERVED_MESSAGE_MANAGER";
-    string constant FEED_MANAGER = "RESERVED_FEED_MANAGER";
+    string constant FEED_MANAGER    = "RESERVED_FEED_MANAGER";
     string constant FOLLOWS_MANAGER = "RESERVED_FOLLOWS_MANAGER";
     string constant REWARDS_MANAGER = "RESERVED_REWARDS_MANAGER";
 
@@ -51,8 +58,8 @@ contract MorphBUs is IMorphBUs {
         return _contentId; 
     }
 
-    function share(uint256 _contentId, uint256 [] memory _ids) external returns (uint256 _shareId){
-        return feed.share( _contentId, _ids, msg.sender);
+    function share(uint256 _contentId, address [] memory _users) external returns (uint256 _shareId){
+        return feed.share( _contentId, _users, msg.sender);
     }
 
     function getShare(uint256 _shareId) view external returns (Share memory _share){
@@ -123,13 +130,14 @@ contract MorphBUs is IMorphBUs {
         return messages.trimMessages(_messageIds);
     }
 
-    function notifyChangeOfAddress() external returns (bool _acknowledged) {
+    function notifyChangeOfAddress() external adminOnly returns (bool _acknowledged) {
         return initialize();
     }
 
     //============================== INITIALIZE =================================================
 
     function initialize() internal returns (bool _initialized) {
+        register = IMBURegister(register.getAddress(NEW_REGISTER));
         names = IMBUNameManager(register.getAddress(NAME_MANAGER));
         contentManager = IMBUContentManager(register.getAddress(CONTENT_MANAGER)); 
         messages = IMBUMessageManager(register.getAddress(MESSAGE_MANAGER)); 

@@ -13,22 +13,38 @@ struct Content {
 
 struct Message { 
     uint256 id; 
-    string fromName; 
-    string toName; 
+    address sender; 
+    address recipient; 
     string ipfsHash;
     uint256 date; 
 }
 
 struct Follow { 
     uint256 id; 
-    string targetName;
+    address followedUser;
+    address follower;
     uint256 date; 
 }
 
 struct Share { 
     uint256 id; 
     uint256 contentId; 
-    uint256 [] userIds; 
+    address [] users; 
+    uint256 date; 
+    address sharer; 
+}
+
+struct Trim { 
+    uint256 id; 
+    uint256 [] oldIds; 
+    uint256 [] newIds; 
+    uint256 date; 
+    address trimmer;
+}
+
+struct Mute { 
+    uint256 id; 
+    address user; 
     uint256 date; 
 }
 

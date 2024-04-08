@@ -14,7 +14,7 @@ interface IMorphBUs {
     
     function getContent(uint256 _contentId) view external returns (Content memory _content);
 
-    function share(uint256 _contentId, uint256 [] memory _ids) external returns (uint256 _shareId);
+    function share(uint256 _contentId, address [] memory _users) external returns (uint256 _shareId);
 
     function getShare(uint256 _shareId) view external returns (Share memory _share);
 

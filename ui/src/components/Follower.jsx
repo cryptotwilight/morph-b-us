@@ -1,19 +1,13 @@
 import React from 'react';
 import PropTypes from "prop-types";
 
-function Friend(props){
+function Follower(props){
   let image = {
     width: '60x',
     height: '60px',
     marginRight: '15px'
   }
-  let buttonStyle={
-    backgroundColor: '#4f7fcc',
-    padding: '7px 25px 7px 25px',
-    color: 'white',
-    marginTop: '-15px',
-    marginBottom: '20px'
-  }
+
   let columns = {
     display: 'grid',
     gridTemplateColumns: '1fr 3fr',
@@ -27,10 +21,6 @@ function Friend(props){
       <div>
         <img style={image} src={props.img}/>
       </div>
-      <div style={raised}>
-        <h4>{props.text}</h4>
-        <button style={buttonStyle}>Follow</button>
-      </div>
     </div>
   );
 }
@@ -40,4 +30,4 @@ Friend.propTypes={
   text: PropTypes.string
 };
 
-export default Friend;
+export default Follower;

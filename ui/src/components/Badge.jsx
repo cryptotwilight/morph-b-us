@@ -35,7 +35,7 @@ function Badge() {
         <img style={image} src="https://eecs.ceas.uc.edu/DDEL/images/default_display_picture.png/@@images/image.png"/>
         <h3 style={nameFloat}>Name N. Namovich</h3>
         <br/>
-        <h5 style={wordsColor}>TWEETS FOLLOWING FOLOLOWERS</h5>
+        <h5 style={wordsColor}>Following: 15, Followers: 1475</h5>
       </div>
     </div>
   );

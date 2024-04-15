@@ -4,13 +4,16 @@ import Badge from './Badge';
 import Bio from './Bio';
 import Feed from './Feed'
 import FriendList from './FriendList';
+import FollowerList from "./FollowerList";
+import Messages from "./Messages";
+import AllFollowerList from "./AllFollowerList";
 
 function App() {
   let columns = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    marginLeft: '25px',
-    marginRight: '25px'
+    gridTemplateColumns: 'repeat(4, 1fr)',
+    marginLeft: '2px',
+    marginRight: '2px'
   }
   return (
     <div>
@@ -18,6 +21,7 @@ function App() {
       <div style={columns}>
         <div>
           <Badge/>
+          <Messages/>
           <Bio/>
         </div>
         <div>
@@ -25,6 +29,10 @@ function App() {
         </div> 
         <div>
           <FriendList/>
+          <FollowerList/>
+        </div>
+        <div>
+          <AllFollowerList/>
         </div>
       </div>
     </div>

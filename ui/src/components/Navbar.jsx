@@ -22,12 +22,11 @@ function Navbar() {
     <div>
       <nav>
         <button style={buttonStyles}>Home</button>
-        <button style={buttonStyles}>Notifications</button>
-        <button style={buttonStyles}>Messages</button>
-        <div style={floatRight}>
-          <input style={Object.assign({}, searchbarStyles, borderRadius)} type="text" placeholder="Search"/>
-          <button style={Object.assign({}, buttonStyles, borderRadius)}>Tweet</button>
-        </div>
+        <button style={buttonStyles}>Morph Notifications</button>
+        <button style={buttonStyles}>Morph Messages</button>
+        <button style={buttonStyles}>New Morph Profile</button>
+        <button style={buttonStyles}>Connect Metamask</button>
+
       </nav>
       <hr/>
     </div>

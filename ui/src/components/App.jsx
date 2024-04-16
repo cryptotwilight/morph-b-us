@@ -6,7 +6,7 @@ import Feed from './Feed'
 import FriendList from './FriendList';
 import FollowerList from "./FollowerList";
 import Messages from "./Messages";
-import AllFollowerList from "./AllFollowerList";
+
 
 function App() {
   let columns = {
@@ -31,9 +31,7 @@ function App() {
           <FriendList/>
           <FollowerList/>
         </div>
-        <div>
-          <AllFollowerList/>
-        </div>
+ 
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
-import React from 'react';
+import { MetaMaskButton } from "@metamask/sdk-react-ui";
+import React, { useState } from "react";
 
 function Navbar() {
   let floatRight = {
@@ -25,7 +26,7 @@ function Navbar() {
         <button style={buttonStyles}>Morph Notifications</button>
         <button style={buttonStyles}>Morph Messages</button>
         <button style={buttonStyles}>New Morph Profile</button>
-        <button style={buttonStyles}>Connect Metamask</button>
+        <MetaMaskButton theme={"light"} color="white"></MetaMaskButton>
 
       </nav>
       <hr/>

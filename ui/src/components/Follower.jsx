@@ -21,6 +21,10 @@ function Follower(props){
       <div>
         <img style={image} src={props.img}/>
       </div>
+      <div style={raised}>
+        <h4>{props.text}</h4>
+        <button style={buttonStyle}>Follow</button>
+      </div>
     </div>
   );
 }

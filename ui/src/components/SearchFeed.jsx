@@ -2,11 +2,9 @@ import React from 'react';
 
 function SearchFeed() {
   let buttonStyle = {
-    width: '34px',
-    height: '34px',
     margin: '20px 10px 0 40px',
     float: 'left',
-    backgroundColor: 'maroon'
+    backgroundColor: 'white'
   }
   let inputStyle = {
     height: '30px',
@@ -21,7 +19,7 @@ function SearchFeed() {
   }
   return (
     <div style={divStyle}>
-      <button style={buttonStyle}></button>
+      <button style={buttonStyle}>Post</button>
       <input style={inputStyle} type="text" placeholder="What's happening?"/>
     </div>
   );

@@ -28,6 +28,7 @@ function Post(props) {
       <div>
         <p style={name}><strong>{props.name}</strong></p>
         <p style={text}>{props.text}</p>
+        <button>Share</button>&nbsp;<button>Message</button>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ interface IMorphBUs {
 
     function isMorphNameAvailable(string memory _name) view external returns (bool _isAvailable); 
 
-    function setMorphName(string memory _name) external returns (uint256 _id);
+    function setMorphName(string memory _name, string memory _ipfsProfile) external returns (bool _set);
 
     function post(Content memory _content) external returns (uint256 _contentId);
     

@@ -23,7 +23,7 @@ contract MorphBUs is IMorphBUs {
         require(register.getAddress(MBU_ADMIN) == msg.sender, "MBU admin only ");
         _; 
     }
-    string constant NEW_REGISTER    = "RESERVED_NEW_REGISTER";
+    string constant MBU_REGISTER    = "RESERVED_MBU_REGISTER";
     string constant NAME_MANAGER    = "RESERVED_NAME_MANAGER";
     string constant CONTENT_MANAGER = "RESERVED_CONTENT_MANAGER";
     string constant MESSAGE_MANAGER = "RESERVED_MESSAGE_MANAGER";
@@ -48,8 +48,8 @@ contract MorphBUs is IMorphBUs {
         return names.isMorphNameAvailable(_name);
     } 
 
-    function setMorphName(string memory _name) external returns (uint256 _id){
-        return names.setMorphName(_name, msg.sender);
+    function setMorphName(string memory _name, string memory _ipfsProfile) external returns (bool _set){
+        return names.setMorphName(_name, msg.sender, _ipfsProfile);
     }
 
     function post(Content memory _content) external returns (uint256 _contentId){
@@ -137,7 +137,7 @@ contract MorphBUs is IMorphBUs {
     //============================== INITIALIZE =================================================
 
     function initialize() internal returns (bool _initialized) {
-        register = IMBURegister(register.getAddress(NEW_REGISTER));
+        register = IMBURegister(register.getAddress(MBU_REGISTER));
         names = IMBUNameManager(register.getAddress(NAME_MANAGER));
         contentManager = IMBUContentManager(register.getAddress(CONTENT_MANAGER)); 
         messages = IMBUMessageManager(register.getAddress(MESSAGE_MANAGER)); 

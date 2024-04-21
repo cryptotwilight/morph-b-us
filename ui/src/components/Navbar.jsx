@@ -1,5 +1,4 @@
-import { MetaMaskButton } from "@metamask/sdk-react-ui";
-import React, { useState } from "react";
+import React from 'react';
 
 function Navbar() {
   let floatRight = {
@@ -21,13 +20,16 @@ function Navbar() {
   }
   return (
     <div>
+      Morph Be Us
       <nav>
-        <button style={buttonStyles}>Home</button>
-        <button style={buttonStyles}>Morph Notifications</button>
-        <button style={buttonStyles}>Morph Messages</button>
-        <button style={buttonStyles}>New Morph Profile</button>
-        <MetaMaskButton theme={"light"} color="white"></MetaMaskButton>
 
+        <button style={buttonStyles}>Home</button>
+        <button style={buttonStyles}>Claim Rewards</button>
+        <button style={buttonStyles}>Messages</button>
+        <div style={floatRight}>
+          <input style={Object.assign({}, searchbarStyles, borderRadius)} type="text" placeholder="Search"/>
+          <button style={Object.assign({}, buttonStyles, borderRadius)}>Connect MorphL2 </button>
+        </div>
       </nav>
       <hr/>
     </div>

@@ -2,9 +2,10 @@ import React from 'react';
 
 function SearchFeed() {
   let buttonStyle = {
+  
     margin: '20px 10px 0 40px',
     float: 'left',
-    backgroundColor: 'white'
+    backgroundColor: 'blue'
   }
   let inputStyle = {
     height: '30px',

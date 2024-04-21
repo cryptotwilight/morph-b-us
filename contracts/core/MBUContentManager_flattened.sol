@@ -1,12 +1,142 @@
 // SPDX-License-Identifier: GPL-3.0
 
+// File: contracts/interfaces/IMBURewardsManager.sol
+
+
+
 pragma solidity >=0.8.2 <0.9.0;
 
-import "../interfaces/IMBUContentManager.sol";
-import "../interfaces/IMBUVersion.sol";
-import "../interfaces/IMBURegister.sol";
-import "../interfaces/IMBUNameManager.sol";
-import "../interfaces/IMBURewardsManager.sol";
+interface IMBURewardsManager {
+
+    function getReward(address _owner) view external returns (uint256 _amount);
+
+    function addReward(uint256 _amount, address _owner) external  returns (uint256 _balance);
+    
+    function addPenalty(uint256 _amount, address _owner) external returns (uint256 _balance);
+}
+// File: contracts/interfaces/IMBUNameManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBUNameManager {
+
+    function isMorphNameAvailable(string memory _name) view external returns (bool _isAvailable); 
+
+    function setMorphName(string memory _name, address _owner, string memory _profile) external returns (bool _nameSet);
+
+    function updateMorphProfile(string memory _name, string memory _profile) external returns (bool _updated);
+
+    function getMorphAddress(string memory _name) view external returns (address _owner);
+
+    function getMorphName(address _address) view external returns (string memory _name);
+
+    function hasMorphName(address _address) view external returns (bool _hasMorphName);
+}
+// File: contracts/interfaces/IMBURegister.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBURegister { 
+
+    function getAddress(string memory _name) view external returns (address _address);
+
+    function getName(address _address) view external returns (string memory _name);
+
+    function isRegistered(address _address) view external returns (bool _isRegistered);
+}
+// File: contracts/interfaces/IMBUVersion.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBUVersion {
+
+    function getName() view external returns (string memory _name);
+
+    function getVersion() view external returns (uint256 _version);
+    
+}
+// File: contracts/interfaces/IMBUStructs.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+struct Content { 
+    uint256 id; 
+    string ipfsHash; 
+    address author; 
+    string authorName;
+    uint256 date;  
+}
+
+struct Message { 
+    uint256 id; 
+    address sender; 
+    address recipient; 
+    string ipfsHash;
+    uint256 date; 
+}
+
+struct Follow { 
+    uint256 id; 
+    address followedUser;
+    address follower;
+    uint256 date; 
+}
+
+struct Share { 
+    uint256 id; 
+    uint256 contentId; 
+    address [] users; 
+    uint256 date; 
+    address sharer; 
+}
+
+struct Trim { 
+    uint256 id; 
+    uint256 [] oldIds; 
+    uint256 [] newIds; 
+    uint256 date; 
+    address trimmer;
+}
+
+struct Mute { 
+    uint256 id; 
+    address user; 
+    uint256 date; 
+}
+
+
+// File: contracts/interfaces/IMBUContentManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+interface IMBUContentManager { 
+
+    function post(Content memory _content) external returns (uint256 _contentId);
+    
+    function getContent(uint256 _contentId) view external returns (Content memory _content);
+}
+// File: contracts/core/MBUContentManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+
+
+
 
 contract MBUContentManager is IMBUContentManager, IMBUVersion { 
 

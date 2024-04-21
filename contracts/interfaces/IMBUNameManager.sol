@@ -6,7 +6,9 @@ interface IMBUNameManager {
 
     function isMorphNameAvailable(string memory _name) view external returns (bool _isAvailable); 
 
-    function setMorphName(string memory _name, address _owner) external returns (uint256 _id);
+    function setMorphName(string memory _name, address _owner, string memory _profile) external returns (bool _nameSet);
+
+    function updateMorphProfile(string memory _name, string memory _profile) external returns (bool _updated);
 
     function getMorphAddress(string memory _name) view external returns (address _owner);
 

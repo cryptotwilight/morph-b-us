@@ -32,10 +32,10 @@ function Badge() {
 
       </div>
       <div style={paddingAll}>
-        <img style={image} src="https://eecs.ceas.uc.edu/DDEL/images/default_display_picture.png/@@images/image.png"/>
-        <h3 style={nameFloat}>Name N. Namovich</h3>
+        <img style={image} src="https://images.pexels.com/photos/17156715/pexels-photo-17156715/free-photo-of-portrait-fo-brunette.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"/>
+        <h3 style={nameFloat}>I am Morph</h3>
         <br/>
-        <h5 style={wordsColor}>Following: 15, Followers: 1475</h5>
+        <h5 style={wordsColor}>FOLLOWING:10 FOLLOWERS: 23345 REWARDS: 876 MBUT</h5>
       </div>
     </div>
   );

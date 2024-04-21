@@ -7,7 +7,13 @@ function Follower(props){
     height: '60px',
     marginRight: '15px'
   }
-
+  let buttonStyle={
+    backgroundColor: '#4f7fcc',
+    padding: '7px 25px 7px 25px',
+    color: 'white',
+    marginTop: '-15px',
+    marginBottom: '20px'
+  }
   let columns = {
     display: 'grid',
     gridTemplateColumns: '1fr 3fr',
@@ -23,13 +29,14 @@ function Follower(props){
       </div>
       <div style={raised}>
         <h4>{props.text}</h4>
-        <button style={buttonStyle}>Follow</button>
+        <button style={buttonStyle}>Mute</button>
+        <button style={buttonStyle}>Boot</button>
       </div>
     </div>
   );
 }
 
-Friend.propTypes={
+Follower.propTypes={
   img: PropTypes.string,
   text: PropTypes.string
 };

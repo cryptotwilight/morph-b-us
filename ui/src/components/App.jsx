@@ -2,16 +2,14 @@ import React from "react";
 import Navbar from './Navbar';
 import Badge from './Badge';
 import Bio from './Bio';
-import Feed from './Feed'
+import Feed from './Feed';
+import FollowerList from './FollowerList';
 import FriendList from './FriendList';
-import FollowerList from "./FollowerList";
-import Messages from "./Messages";
-
 
 function App() {
   let columns = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(4, 2fr)',
     marginLeft: '2px',
     marginRight: '2px'
   }
@@ -21,7 +19,6 @@ function App() {
       <div style={columns}>
         <div>
           <Badge/>
-          <Messages/>
           <Bio/>
         </div>
         <div>
@@ -29,9 +26,10 @@ function App() {
         </div> 
         <div>
           <FriendList/>
+        </div>
+        <div>
           <FollowerList/>
         </div>
- 
       </div>
     </div>
   );

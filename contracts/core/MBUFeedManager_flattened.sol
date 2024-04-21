@@ -1,24 +1,121 @@
 // SPDX-License-Identifier: GPL-3.0
 
+// File: contracts/interfaces/IMBUVersion.sol
+
+
+
 pragma solidity >=0.8.2 <0.9.0;
 
-import "../interfaces/IMBUFeedManager.sol";
-import "../interfaces/IMBURegister.sol";
-import "../interfaces/IMBUVersion.sol";
-import "../interfaces/IMBURewardsManager.sol";
+interface IMBUVersion {
 
-import {Trim, Share} from "../interfaces/IMBUStructs.sol";
+    function getName() view external returns (string memory _name);
+
+    function getVersion() view external returns (uint256 _version);
+    
+}
+// File: contracts/interfaces/IMBURegister.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBURegister { 
+
+    function getAddress(string memory _name) view external returns (address _address);
+
+    function getName(address _address) view external returns (string memory _name);
+
+    function isRegistered(address _address) view external returns (bool _isRegistered);
+}
+// File: contracts/interfaces/IMBUStructs.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+struct Content { 
+    uint256 id; 
+    string ipfsHash; 
+    address author; 
+    string authorName;
+    uint256 date;  
+}
+
+struct Message { 
+    uint256 id; 
+    address sender; 
+    address recipient; 
+    string ipfsHash;
+    uint256 date; 
+}
+
+struct Follow { 
+    uint256 id; 
+    address followedUser;
+    address follower;
+    uint256 date; 
+}
+
+struct Share { 
+    uint256 id; 
+    uint256 contentId; 
+    address [] users; 
+    uint256 date; 
+    address sharer; 
+}
+
+struct Trim { 
+    uint256 id; 
+    uint256 [] oldIds; 
+    uint256 [] newIds; 
+    uint256 date; 
+    address trimmer;
+}
+
+struct Mute { 
+    uint256 id; 
+    address user; 
+    uint256 date; 
+}
+
+
+// File: contracts/interfaces/IMBUFeedManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+interface IMBUFeedManager { 
+
+    function getFeed(address _feedOwner) view external returns (uint256 [] memory _contentIds);
+
+    function trimFeed(uint256 [] memory _contentIds, address _feedOwner) external returns (uint256 _trimId);
+
+    function addToFeed(uint256 _contentId, address _feedOwner) external returns (bool _added );
+    
+    function share(uint256 _contentId, address [] memory _users, address _sharer) external returns (uint256 _shareId);
+
+    function getShare(uint256 _shareId) view external returns (Share memory _share);
+
+}
+// File: contracts/core/MBUFeedManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+
+
 
 
 contract MBUFeedManager {
 
-    uint256 constant version = 3; 
-    
+    uint256 constant version = 1; 
     string constant name = "RESERVED_FEED_MANAGER";
-
     string constant MBU_ADMIN = "RESERVED_MBU_ADMIN";
-    string constant MBU_REGISTER = "RESERVED_MBU_REGISTER";
-    string constant REWARD_MANAGER = "RESERVED_REWARDS_MANAGER";
 
     modifier adminOnly() { 
         require(register.getAddress(MBU_ADMIN) == msg.sender, " admin only ");
@@ -31,10 +128,6 @@ contract MBUFeedManager {
     }
 
     IMBURegister register;
-    IMBURewardsManager rewards; 
-
-    uint256 Share_Reward = 1 * 1e15; 
-
     uint256 index;  
     mapping(address=>uint256[]) feedByOwner;
     mapping(uint256=>Share) shareById; 
@@ -42,9 +135,8 @@ contract MBUFeedManager {
     mapping(uint256=>Trim) trimById; 
 
 
-    constructor(address _register){
-        register = IMBURegister(_register); 
-        initialize();
+    constructor(IMBURegister _register){
+        register = _register; 
     }
 
     function getName() pure external returns (string memory _name) {
@@ -85,10 +177,6 @@ contract MBUFeedManager {
         for(uint256 x = 0; x < _users.length; x++){
             feedByOwner[_users[x]].push(_contentId);
         }
-        uint256 reward_ = Share_Reward * _users.length; 
-
-        rewards.addReward(reward_, _sharer);
-
         _shareId = getIndex(); 
         shareById[_shareId] = Share({
                                         id : _shareId,
@@ -104,17 +192,7 @@ contract MBUFeedManager {
         return shareById[_shareId];
     }
 
-    function notifyChangeOfAddress() external returns (bool _acknowledged){
-        register = IMBURegister(register.getAddress(MBU_REGISTER));
-        return true; 
-    }
-
     //==================================== INTERNAL ==============================
-
-    function initialize() internal returns (bool _initialized) {
-        rewards = IMBURewardsManager(register.getAddress(REWARD_MANAGER));
-        return true; 
-    }
 
     function getIndex() internal returns (uint256 _index) {
         _index = index++;

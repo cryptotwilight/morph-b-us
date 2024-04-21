@@ -1,11 +1,68 @@
 // SPDX-License-Identifier: GPL-3.0
+// File: contracts/interfaces/IMBUToken.sol
+
+
 
 pragma solidity >=0.8.2 <0.9.0;
 
-import "../interfaces/IMBURegister.sol";
-import "../interfaces/IMBUVersion.sol";
-import "../interfaces/IMBURewardsManager.sol";
-import "../interfaces/IMBUToken.sol";
+
+interface IMBUToken { 
+
+    function mint(uint256 _amount, address _to) external returns (uint256 _totalCirculatingSupply);
+
+    function burn(uint256 _amount) external returns (uint256 _totalCirculatingSupply);
+
+}
+// File: contracts/interfaces/IMBURewardsManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBURewardsManager {
+
+    function getReward(address _owner) view external returns (uint256 _amount);
+
+    function addReward(uint256 _amount, address _owner) external  returns (uint256 _balance);
+    
+    function addPenalty(uint256 _amount, address _owner) external returns (uint256 _balance);
+}
+// File: contracts/interfaces/IMBUVersion.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBUVersion {
+
+    function getName() view external returns (string memory _name);
+
+    function getVersion() view external returns (uint256 _version);
+    
+}
+// File: contracts/interfaces/IMBURegister.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+interface IMBURegister { 
+
+    function getAddress(string memory _name) view external returns (address _address);
+
+    function getName(address _address) view external returns (string memory _name);
+
+    function isRegistered(address _address) view external returns (bool _isRegistered);
+}
+// File: contracts/core/MBURewardsManager.sol
+
+
+
+pragma solidity >=0.8.2 <0.9.0;
+
+
+
+
 
 contract MBURewardsManager is IMBURewardsManager, IMBUVersion { 
 
